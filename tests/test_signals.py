@@ -37,6 +37,7 @@ class Sentinel(list):
 
 def test_meta_connect():
     sentinel = []
+
     def meta_received(sender, **kw):
         sentinel.append(dict(kw, sender=sender))
 
@@ -270,6 +271,7 @@ def test_namespace():
 
 def test_weak_receiver():
     sentinel = []
+
     def received(sender, **kw):
         sentinel.append(kw)
 
@@ -296,6 +298,7 @@ def test_weak_receiver():
 
 def test_strong_receiver():
     sentinel = []
+
     def received(sender):
         sentinel.append(sender)
     fn_id = id(received)
@@ -316,8 +319,10 @@ def test_instancemethod_receiver():
     sentinel = []
 
     class Receiver(object):
+
         def __init__(self, bucket):
             self.bucket = bucket
+
         def received(self, sender):
             self.bucket.append(sender)
 
@@ -338,6 +343,7 @@ def test_instancemethod_receiver():
 
 def test_filtered_receiver():
     sentinel = []
+
     def received(sender):
         sentinel.append(sender)
 
@@ -368,6 +374,7 @@ def test_filtered_receiver():
 
 def test_filtered_receiver_weakref():
     sentinel = []
+
     def received(sender):
         sentinel.append(sender)
 
@@ -412,6 +419,38 @@ def test_decorated_receiver():
     assert not sentinel
     sig.send(obj)
     assert sig.receivers
+    del receiver
+    collect_acyclic_refs()
+    assert sig.receivers
+
+
+def test_decorated_receiver_mutiple():
+    sentinel = []
+
+    class Object1(object):
+        pass
+
+    class Object2(object):
+        pass
+
+    obj1 = Object1()
+    obj2 = Object2()
+
+    sig = blinker.Signal()
+
+    @sig.connect_via_multiple([obj1, obj2])
+    def receiver(sender, **kw):
+        sentinel.append(kw)
+
+    assert not sentinel
+    sig.send()
+    assert not sentinel
+    sig.send(1)
+    assert not sentinel
+    sig.send(obj1)
+    assert sig.receivers
+    sig.send(obj2)
+    assert sig.receivers
 
     del receiver
     collect_acyclic_refs()
@@ -420,6 +459,7 @@ def test_decorated_receiver():
 
 def test_no_double_send():
     sentinel = []
+
     def received(sender):
         sentinel.append(sender)
 
@@ -487,6 +527,7 @@ def test_named_blinker():
 def values_are_empty_sets_(dictionary):
     for val in dictionary.values():
         assert val == set()
+
 
 def test_send_robust():
     def good(sender):

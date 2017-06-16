@@ -187,9 +187,9 @@ class Signal(object):
     def connect_via_multiple(self, senders, weak=False):
         """Connect the decorated function as a receiver for *sender*.
 
-        :param senders: Any object or :obj:`ANY`.  The decorated function
-          will only receive :meth:`send` emissions sent by *sender*.  If
-          ``ANY``, the receiver will always be notified.  A function may be
+        :param senders: A list of objects or :obj:`ANY`.  The decorated
+          function will only receive :meth:`send` emissions sent by *sender*.
+          If ``ANY``, the receiver will always be notified.  A function may be
           decorated multiple times with differing *sender* values.
 
         :param weak: If true, the Signal will hold a weakref to the

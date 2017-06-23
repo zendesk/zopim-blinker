@@ -2,9 +2,12 @@
 Blinker Changelog
 =================
 
-Version 1.5dev
+Version 1.5
 --------------
 
+Released June 23, 2017
+
+- Add support to connect via multiple objects using `connect_via_multiple`
 
 Version 1.4
 -----------

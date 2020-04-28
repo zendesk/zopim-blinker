@@ -15,4 +15,4 @@ install:
 # command to run tests
 script:
   - nosetests --with-cov --cov-report xml
-  - bash <(curl -S https://codecov.io/bash)
+  - bash <(curl -S https://raw.githubusercontent.com/zendesk/codecov-bash/master/codecov)

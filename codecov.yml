@@ -1,0 +1,9 @@
+coverage:
+  status:
+    project:
+      default:
+        target: 70%
+        threshold: 1%
+    patch: off
+comment:
+  after_n_builds: 4  # Wait until we receive the reports from all tests

@@ -3,7 +3,7 @@ on: [push]
 jobs:
   main:
     name: python3-matrix
-    runs-on: [ self-hosted, zendesk-stable ]
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         version:

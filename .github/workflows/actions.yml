@@ -1,0 +1,24 @@
+name: repo-checks
+on: [push]
+jobs:
+  main:
+    name: python3-matrix
+    runs-on: [ self-hosted, zendesk-stable ]
+    strategy:
+      matrix:
+        version:
+          - "2.7"
+          - "3.4"
+          - "3.5"
+          - "3.6"
+          - "3.7"
+          - "3.8"
+    - uses: zendesk/setup-python@v2
+      with:
+        python-version: ${{ matrix.version }}
+    - name: test python ${{ matrix.version }}
+      run: |
+        pip install .
+        pip install nose-cov
+        nosetests --with-cov --cov-report xml
+        bash <(curl -S https://raw.githubusercontent.com/zendesk/codecov-bash/master/codecov)

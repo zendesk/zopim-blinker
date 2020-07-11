@@ -19,7 +19,7 @@ jobs:
         python-version: ${{ matrix.version }}
     - name: test python ${{ matrix.version }}
       run: |
-        # pip install .
+        pip install .
         pip install nose-cov
         nosetests --with-cov --cov-report xml
         bash <(curl -S https://raw.githubusercontent.com/zendesk/codecov-bash/master/codecov)

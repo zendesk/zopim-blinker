@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/jek/blinker.svg?branch=master)](https://travis-ci.org/jek/blinker)
+![repo-checks](https://github.com/zendesk/zopim-blinker/workflows/repo-checks/badge.svg)
 [![codecov](https://codecov.io/gh/zendesk/zopim-blinker/branch/master/graph/badge.svg)](https://codecov.io/gh/zendesk/zopim-blinker)
 
 

@@ -32,6 +32,20 @@ sent by any sender.
 
 See the [Blinker documentation](https://pythonhosted.org/blinker/) for more information.
 
+This is a Zendesk fork of Blinker, maintained for Zendesk Chat services.
+
+## Owners
+
+While anyone can contribute to the repository, the primary owner of this repository is **[ChatOps](https://cerebro.zende.sk/teams/chat-ops)**, located in Pune.
+
+| Channel  | Contact                                                            |
+|----------|--------------------------------------------------------------------|
+| Slack    | [ChatOps](https://zendesk.slack.com/archives/ask-chops)            |
+| Email    | chops@zendesk.com                                                  |
+| GitHub   | [@zendesk/chat-ops](https://github.com/orgs/zendesk/teams/chat-ops) |
+
+We are working in **India Standard Time** (IST) (UTC +5:30).
+
 ## Requirements
 
 Blinker requires Python 2.4 or higher, Python 3.0 or higher, or Jython 2.5 or higher.
